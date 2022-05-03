@@ -44,13 +44,14 @@ namespace YahooFinanceApi
                     .EnableCookies();
                 
                 await client.Request().GetAsync(token).ConfigureAwait(false);
+                return client;
 
-                if (client.Cookies?.Count > 0)
-                    return client;
+                //if (client.Cookies?.Count > 0)
+                //    return client;
 
-                Debug.WriteLine("Failure to create client.");
+                //Debug.WriteLine("Failure to create client.");
 
-                await Task.Delay(100, token).ConfigureAwait(false);
+                //await Task.Delay(100, token).ConfigureAwait(false);
             }
 
             throw new Exception("Failure to create client.");
